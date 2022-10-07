@@ -1,0 +1,51 @@
+[tool.black]
+# 行の最大の長さはPEP8準拠
+line-length = 79
+
+[tool.isort]
+# Blackと競合しないよう設定
+profile = "black"
+# 行の最大の長さはPEP8に準拠
+line_length = 79
+
+[tool.poetry]
+name = "skyper_automatic_tagging"
+version = "0.1.0"
+description = ""
+packages = [
+{include = "automatic_tagging", from = "src" },
+]
+authors = ["taka-albert <takayuki_yagi@albert2005.co.jp>"]
+
+[tool.poetry.dependencies]
+python = "^3.9,<3.10"
+pandas = "^1.3.2"
+numpy = "^1.21.2"
+scikit-learn = "^0.24.2"
+matplotlib = "^3.4.3"
+tqdm = "^4.62.2"
+ginza = "^5.0.3"
+spacy = "3.1.1"
+mecab-python3 = "^1.0.4"
+pymediawiki = "^0.7.1"
+ja-ginza = "^5.0.0"
+gensim = "^4.1.2"
+chikkarpy = "^0.1.0"
+nltk = "^3.6.6"
+openpyxl = "^3.0.9"
+PyYAML = "^6.0"
+japanize-matplotlib = "^1.1.3"
+matplotlib-venn = "^0.11.7"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = "^21.8b0"
+flake8 = "^3.9.2"
+jupyterlab = "^3.1.10"
+ipywidgets = "^7.6.4"
+widgetsnbextension = "^3.5.1"
+jupyterlab-vim = "^0.14.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

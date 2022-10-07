@@ -13,10 +13,10 @@ services:
       --port=8888
       --NotebookApp.token=''
       --LabApp.token=''
+      --notebook-dir=/workspace
     expose:
       - "8888"
     ports:
       - "127.0.0.1:8888:8888"
     volumes:
-      # - ./jupyterlab/root_jupyter:/root/.jupyter
       - .:/workspace
