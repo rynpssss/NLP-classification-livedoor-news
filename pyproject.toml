@@ -9,13 +9,13 @@ profile = "black"
 line_length = 79
 
 [tool.poetry]
-name = "skyper_automatic_tagging"
+name = "nlp_classification_news"
 version = "0.1.0"
 description = ""
-packages = [
-{include = "automatic_tagging", from = "src" },
-]
-authors = ["taka-albert <takayuki_yagi@albert2005.co.jp>"]
+# packages = [
+# {include = "automatic_tagging", from = "src" },
+# ]
+authors = ["atsushi_sato <rynpssss@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9,<3.10"

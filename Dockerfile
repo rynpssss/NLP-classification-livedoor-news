@@ -61,6 +61,7 @@ ENV HOME=/root
 ENV POETRY_HOME=$HOME/.poetry
 ENV PATH=$POETRY_HOME/bin:$PATH
 RUN curl -sSL https://install.python-poetry.org | python3.9 -
+# RUN poetry config virtualenvs.create false
 RUN poetry self update \
     && poetry config virtualenvs.in-project true \
     && poetry run pip install --upgrade pip \
@@ -68,3 +69,16 @@ RUN poetry self update \
 RUN echo export PATH="$PATH" >> ~/.bashrc \
     && echo alias python=python3 >> ~/.bashrc \
     && source ~/.bashrc %
+
+RUN apt-get install -y file
+# mecab-ipadic-NEologdのインストール
+WORKDIR /root
+# RUN git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git \
+#    && cd mecab-ipadic-neologd \
+#    && bin/install-mecab-ipadic-neologd -n -y
+RUN git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git && \
+  cd mecab-ipadic-neologd && \
+  ./bin/install-mecab-ipadic-neologd -n -y && \
+  echo dicdir = `mecab-config --dicdir`"/mecab-ipadic-neologd">/etc/mecabrc && \
+  cp /etc/mecabrc /usr/local/etc && \
+  cd ..
